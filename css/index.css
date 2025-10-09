@@ -1,34 +1,38 @@
 @import url(./variable.css);
+@import url(./font.css);
+
 /* start default styles */
-html{
+html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
 
-body{
+body {
     line-height: 1.6;
     font-size: 1.6rem;
     font-family: var(--primary-font);
+    direction: rtl;
 }
 
 *,
 *::after,
-*::before{
+*::before {
     outline: none;
     box-sizing: inherit;
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--dark-color);
     transition: all 400ms ease;
 }
 
-a:hover{
+a:hover {
     color: #1e83f0;
 }
 
-i{
+i {
     user-select: none;
 }
+
 /* finish default styles */
