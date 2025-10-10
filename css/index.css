@@ -1,5 +1,6 @@
 @import url(./variable.css);
 @import url(./font.css);
+@import url(top-bar.css);
 
 /* start default styles */
 html {
