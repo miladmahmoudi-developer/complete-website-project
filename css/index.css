@@ -9,8 +9,6 @@ html {
 }
 
 body {
-    max-width: 1000px;
-    margin: 0 auto;
     line-height: 1.6;
     font-size: 1.6rem;
     font-family: var(--primary-font);
@@ -126,7 +124,7 @@ i {
     color: var(--dark-color);
     transition: all 400ms ease;
 }
-..main-header__dropdown-link:hover{
+.main-header__dropdown-link:hover{
     color: #1e83f0;
 }
 
