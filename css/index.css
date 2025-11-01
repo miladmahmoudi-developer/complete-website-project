@@ -575,7 +575,7 @@ i {
 
 
 
-/* start popular courses style */
+/* start popular and pre-sell courses style */
 
 
 .popular , .presell{
@@ -596,7 +596,7 @@ i {
     position: relative;
 }
 
-/* finish popular courses style */
+/* finish popular and pre-sell courses style */
 
 
 
@@ -605,13 +605,58 @@ i {
 
 
 
-/* start pre-sell courses style */
 
 
 
 
-/* finish pre-sell courses style */
 
+
+
+
+
+
+/* start articles styles */
+
+.articles{
+    margin: 4rem 0;
+}
+
+.articles-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.articles-header__right{
+    display: flex;
+    flex-direction: column;
+}
+
+.articles-header__text{
+    color: #9c9c9c;
+    font-size: 1.5rem;
+}
+
+.articles-header__link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.articles-header__link:hover{
+    color: var(--white-color);
+}
+
+.articles-header__icon{
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}
+
+/* fifnish articles styles */
 
 
 
