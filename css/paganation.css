@@ -1,0 +1,36 @@
+/* start courses-paganation styles */
+
+
+.courses-paganation {
+    margin: 3rem 0;
+}
+
+.courses__paganation-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.courses__paganation-link {
+    border-radius: 0.5rem;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: #f0f0f1;
+    margin: 0 0.5rem;
+}
+
+.courses__paganation-link:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.courses__paganation-link--active {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+/* finish courses-paganation styles */
