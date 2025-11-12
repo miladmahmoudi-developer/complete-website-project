@@ -18,6 +18,7 @@
 
 .top-bar__menu {
     display: flex;
+    list-style: none;
 }
 
 .top-bar__link {
