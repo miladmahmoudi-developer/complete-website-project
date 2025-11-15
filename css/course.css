@@ -31,6 +31,7 @@
 
 .breadcrumb__content {
     display: flex;
+    align-items: center;
     background-color: #f0f2f7;
     padding: 1.5rem 2rem;
     border-radius: 1rem;
