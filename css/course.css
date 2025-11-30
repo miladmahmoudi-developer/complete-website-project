@@ -460,12 +460,12 @@
 /* start sidebar styles */
 
 
-.courses-info{
+.course-more-info {
     position: sticky;
     top: 2rem;
 }
 
-.course-info{
+.course-more-info {
     border-radius: 0.5rem;
     margin-top: 1rem;
     padding: 2.2rem;
@@ -473,7 +473,7 @@
     border: 1px #f2f2f2;
 }
 
-.course-info__register{
+.course-more-info__register {
     text-align: center;
     background-color: #1fbd50;
     padding: 1.5rem 1rem;
@@ -481,19 +481,19 @@
     box-shadow: 0 2px 12px rgba(31, 189, 80, 36%);
 }
 
-.course-info__register-title{
+.course-more-info__register-title {
     font-size: 1.7rem;
     font-weight: bold;
     color: var(--white-color);
 }
 
-.course-info__register-icon{
+.course-more-info__register-icon {
     font-size: 2rem;
 }
 
-/* course info total styles */
+/* course more info total styles */
 
-.course-info__top{
+.course-more-info__top {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -502,36 +502,37 @@
     border: 2px solid #f0f2f7;
 }
 
-.course-info__total-sale-icon{
+.course-more-info__total-sale-icon {
     color: #555555;
     font-size: 2.7rem;
 }
 
-.course-info__total-sale-text{
+.course-more-info__total-sale-text {
     color: #7f8187;
 }
 
-.course-info__total-sale-number{
+.course-more-info__total-sale-number {
     color: var(--white-color);
     background: #c4c7cf;
     border-radius: 0.5rem;
-    padding: 0.3rem 1.2rem ;
+    padding: 0.3rem 1.2rem;
 }
 
-.course-info__bottom{
+.course-more-info__bottom {
     display: flex;
     justify-content: space-evenly;
     padding-top: 2rem;
     color: #7b868a;
 }
 
-.course-info__total-comment , .course-info__total-view{
+.course-more-info__total-comment,
+.course-more-info__total-view {
     position: relative;
     display: flex;
     align-items: center;
 }
 
-.course-info__total-comment::before{
+.course-more-info__total-comment::before {
     content: "";
     position: absolute;
     height: 100%;
@@ -540,16 +541,50 @@
     left: -3rem;
 }
 
-.course-info__total-comment-icon , .course-info__total-view-icon{
+.course-more-info__total-comment-icon,
+.course-more-info__total-view-icon {
     font-size: 2.2rem;
 }
 
-.course-info__total-comment-text , .course-info__total-view-text{
+.course-more-info__total-comment-text,
+.course-more-info__total-view-text {
     font-size: 1.4rem;
     margin-right: 1rem;
 }
 
-/* course info total styles */
+/* course more info total styles */
+
+
+
+
+/* course more info short url styles */
+
+.course-more-info__header-short-url {
+    display: flex;
+    align-items: center;
+    color: #7b868a;
+}
+
+.course-more-info__short-url-icon {
+    font-size: 2rem;
+}
+
+.course-more-info__short-url-text {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.course-more-info__short-url {
+    display: block;
+    margin: 1rem 0;
+    border: 1px solid #dcdcdc;
+    color: #a7a7a7;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+}
+
+/* course more info shotr url styles */
 
 
 
