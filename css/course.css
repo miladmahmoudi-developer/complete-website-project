@@ -460,7 +460,7 @@
 /* start sidebar styles */
 
 
-.course-more-info {
+.course-more-info_main {
     position: sticky;
     top: 2rem;
 }
@@ -588,6 +588,15 @@
 
 
 
+.course-more-info__topic-title{
+    display: block;
+    color: var(--dark-color);
+    font-size: 1.8rem;
+}
+.course-more-info__topic-text{
+    font-size: 1.5rem;
+    color: #7d7e7f;
+}
 
 
 
