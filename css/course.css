@@ -95,7 +95,8 @@
 
 
 .course-info {
-    margin-bottom: 6rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 13px 1px rgba(70, 72, 77, 0.08);
 }
 
 .course-info__link {
@@ -588,6 +589,12 @@
 
 
 
+
+
+
+
+
+
 .course-more-info__topic-title{
     display: block;
     color: var(--dark-color);
@@ -599,6 +606,44 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+.course-more-info__courses-title{
+    font-size: 1.8rem;
+    display: block;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+}
+
+.course-more-info__courses-list-item{
+    margin-bottom: 2rem;
+}
+
+.course-more-info__courses-link{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.course-more-info__courses-img{
+    width: 70px;
+    border-radius: 0.5rem;
+}
+
+.course-more-info__courses-text{
+    font-size: 1.3rem;
+    /* margin-right: 0.5rem; */
+    color: #8d8d8d;
+    font-weight: bold;
+}
 
 
 
