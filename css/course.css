@@ -18,6 +18,8 @@
 
 @import url(breadcrumb.css);
 
+@import url(sidebarcoursesbox.css);
+
 
 
 
@@ -390,19 +392,8 @@
 
 /* start sidebar styles */
 
+/* ... two attribute change to a import file */
 
-.course-more-info_main {
-    position: sticky;
-    top: 2rem;
-}
-
-.course-more-info {
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-    padding: 2.2rem;
-    box-shadow: 0 0 13px 1px rgba(70, 72, 77, 0.08);
-    border: 1px #f2f2f2;
-}
 
 .course-more-info__register {
     text-align: center;
@@ -522,58 +513,7 @@
 
 
 
-
-
-
-.course-more-info__topic-title{
-    display: block;
-    color: var(--dark-color);
-    font-size: 1.8rem;
-}
-.course-more-info__topic-text{
-    font-size: 1.5rem;
-    color: #7d7e7f;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-.course-more-info__courses-title{
-    font-size: 1.8rem;
-    display: block;
-    color: var(--dark-color);
-    margin-bottom: 1.5rem;
-}
-
-.course-more-info__courses-list-item{
-    margin-bottom: 2rem;
-}
-
-.course-more-info__courses-link{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.course-more-info__courses-img{
-    width: 70px;
-    border-radius: 0.5rem;
-}
-
-.course-more-info__courses-text{
-    font-size: 1.3rem;
-    /* margin-right: 0.5rem; */
-    color: #8d8d8d;
-    font-weight: bold;
-}
+/* ... last box change to a import file */
 
 
 
