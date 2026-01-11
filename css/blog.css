@@ -86,6 +86,28 @@
 
 
 
+
+
+
+/* start helper clases */
+
+
+.paragraph{
+    font-size: 1.5rem;
+    line-height: 3rem;
+    color: #7d7e7f;
+}
+
+
+/* finish helper clases */
+
+
+
+
+
+
+
+
 /* start sidebar styles */
 
 .course-more-info{
