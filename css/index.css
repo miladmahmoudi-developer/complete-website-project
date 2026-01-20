@@ -192,6 +192,10 @@
     flex-direction: column;
 }
 
+.about-us__title{
+    max-width: 265px;
+}
+
 .about-us__subtitle {
     color: #9c9c9c;
     font-size: 1.5rem;
