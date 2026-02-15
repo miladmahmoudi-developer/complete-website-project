@@ -15,3 +15,7 @@ const port = +process.env.PORT;
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
 });
+
+// server.js یا app.js
+const cors = require('cors');
+app.use(cors());
