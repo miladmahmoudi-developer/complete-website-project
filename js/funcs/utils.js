@@ -1,5 +1,5 @@
-const showSwal = (title , icon , buttons , callback) =>{
-    
+const showSwal = (title, icon, buttons, callback) => {
+
     swal({
 
         title,
@@ -10,16 +10,16 @@ const showSwal = (title , icon , buttons , callback) =>{
 
 };
 
-const saveIntoLocalStorage = (key , value) =>{
-    return localStorage.setItem(key , value)
+const saveIntoLocalStorage = (key, value) => {
+    return localStorage.setItem(key, JSON.stringify(value))
 };
 
 const getFromLocalStorage = (key) => {
-    return JSON.stringify(localStorage.getItem(key))
+    return JSON.parse(localStorage.getItem(key))
 }
 
-const getToken = () =>{
-    return JSON.parse(localStorage.getItem('user')).token
+const getToken = () => {
+    return JSON.parse(localStorage.getItem('user'))?.token || null
 }
 
-export {showSwal , saveIntoLocalStorage , getFromLocalStorage , getToken };
+export { showSwal, saveIntoLocalStorage, getFromLocalStorage, getToken };
