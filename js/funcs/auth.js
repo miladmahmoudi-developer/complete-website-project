@@ -1,4 +1,4 @@
-import { showSwal , saveIntoLocalStorage } from "./utils.js";
+import { showSwal, saveIntoLocalStorage } from "./utils.js";
 
 
 
@@ -45,7 +45,7 @@ const register = () => {
     })
         .then((result) => {
             console.log(result);
-            saveIntoLocalStorage('user' , { token: result.accessToken })
+            saveIntoLocalStorage('user', { token: result.accessToken })
 
         })
 
@@ -69,18 +69,33 @@ const login = () => {
 
     }
 
-    fetch(`http://localhost:4000/v1/auth/login` , {
+    fetch(`http://localhost:4000/v1/auth/login`, {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(userInfos)
-    }).then((res) =>{
+    }).then(res => {
+
+        // result alerts...
+        if (res.status === 200) {
+
+            showSwal('ورود با موفقیت انجام شد', 'success', 'ورود به پنل', (result) => { location.href = 'index.html' })
+
+        } else if (res.status === 401) {
+
+            showSwal('کاربری با این اطلاعات یافت نشد', 'error', 'تصحیح اطلاعات', () => { })
+
+        }
+
         console.log(res);
-        return res.json();
-    }).then((result) =>{
-        console.log(result);
+
+        return res.json()
     })
+        .then((result) => {
+            console.log(result);
+            saveIntoLocalStorage('user', { token: result.accessToken })
+        })
 
 };
 
