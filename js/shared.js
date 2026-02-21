@@ -1,12 +1,8 @@
 import { getMe } from "./funcs/auth.js";
-
+import { showUserNameInNavber } from "./funcs/shared.js";
 
 window.addEventListener('load' , () =>{
 
-    getMe().then(data =>{
-        console.log(data);
-        
-    })
-    
+    showUserNameInNavber()
 
 })
