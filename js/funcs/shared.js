@@ -48,8 +48,15 @@ const renderTopbarMenus = async () => {
 
 
 
-    topbarList.innerHTML ='';
-    [...topbarMenus].splice(0, 6).map(menu => {
+
+
+
+    topbarList.innerHTML = '';
+
+    const shuffledArray = topbarMenus.sort((a, b) => 0.5 - Math.random());
+
+
+    shuffledArray.splice(0, 6).map(menu => {
         topbarList.innerHTML += `
         <li class="top-bar__item">
 
