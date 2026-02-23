@@ -13,8 +13,8 @@ const showUserNameInNavber = () => {
 
         const userInfos = getMe().then(data => {
 
-        navbarProfileBox.setAttribute('href', './index.html')
-        navbarProfileBox.innerHTML = `<span class="main-header__profile-text" >${data.name}</span>`
+            navbarProfileBox.setAttribute('href', './index.html')
+            navbarProfileBox.innerHTML = `<span class="main-header__profile-text" >${data.name}</span>`
 
         })
 
@@ -26,6 +26,38 @@ const showUserNameInNavber = () => {
     }
 
 
-}
+};
 
-export { showUserNameInNavber }
+export { showUserNameInNavber };
+
+
+
+
+
+
+
+const renderTopbarMenus = async () => {
+
+    const topbarList = document.querySelector('.top-bar__menu');
+
+    const res = await fetch(`http://localhost:4000/v1/menus/topbar`);
+
+    const topbarMenus = await res.json();
+
+    console.log(topbarMenus);
+
+
+
+    topbarList.innerHTML ='';
+    [...topbarMenus].splice(0, 6).map(menu => {
+        topbarList.innerHTML += `
+        <li class="top-bar__item">
+
+            <a href="${menu.href}" class="top-bar__link">${menu.title}</a>
+
+        </li>`
+    })
+
+};
+
+export { renderTopbarMenus };

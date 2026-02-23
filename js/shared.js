@@ -1,8 +1,9 @@
 import { getMe } from "./funcs/auth.js";
-import { showUserNameInNavber } from "./funcs/shared.js";
+import { showUserNameInNavber , renderTopbarMenus } from "./funcs/shared.js";
 
 window.addEventListener('load' , () =>{
 
     showUserNameInNavber()
+    renderTopbarMenus()
 
 })
