@@ -1,3 +1,6 @@
+
+
+
 // برای تکرار نکردن مدام کلمه document
 const $ = document;
 
@@ -29,15 +32,19 @@ function typeWriter(text, index) {
 
 
 
-
-
-
-
 window.addEventListener('load', () => {
 
     makeCounter(40, landingCoursesCount);
     makeCounter(3071, landingUsersCount);
     makeCounter(3320, landingMinutesCount);
+
+
+    console.log(getAndShowAllCourses);
+    
+    // getAndShowAllCourses().then(data => {
+    //     console.log(data);
+
+    // })
 
 })
 
@@ -66,3 +73,21 @@ function makeCounter(max, elem) {
 
 
 // ------------------------------------------------------------------تکه کد بالا به عنوان کامپوننت کانتر یا شمارنده با گرفتن دو پارامتر می تواند استفاده شود
+
+
+
+
+
+
+
+import { getAndShowAllCourses } from "./funcs/shared.js";
+
+window.addEventListener('load', () => {
+
+    
+    getAndShowAllCourses().then(data => {
+        console.log(data);
+
+    })
+
+})
