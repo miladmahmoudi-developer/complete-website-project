@@ -103,11 +103,15 @@ const getAndShowAllCourses = async () => {
                                         </div>
 
                                         <div class="course-box__rating">
-                                            <img src="images/svgs/star.svg" alt="rating" class="course-box__star">
-                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
-                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
-                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
-                                            <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+
+                                        ${
+                                            Array(5- course.courseAverageScore).fill(0).map(score => '<img src="images/svgs/star.svg" alt="rating" class="course-box__star">').join('')
+                                        }
+
+                                        ${
+                                            Array(course.courseAverageScore).fill(0).map(score => '<img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">').join('')
+                                        }
+                                            
                                         </div>
 
                                     </div>
