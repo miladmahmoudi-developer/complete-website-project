@@ -91,3 +91,19 @@ window.addEventListener('load', () => {
     })
 
 })
+
+
+
+
+
+import { getAndShowPopularCourses } from "./funcs/shared.js";
+
+window.addEventListener('load', () => {
+
+    
+    getAndShowPopularCourses().then(data => {
+        console.log(data);
+
+    })
+
+})
