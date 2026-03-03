@@ -185,7 +185,7 @@ const getAndShowPopularCourses = async () => {
 
 
 
-    courses.slice(0,3).map(course => {
+    courses.slice(0, 3).map(course => {
         popularCourses.insertAdjacentHTML("beforeend", `
 
              <div class="swiper-slide">
@@ -268,7 +268,7 @@ export { getAndShowPopularCourses };
 
 const getAndShowPresellCourses = async () => {
 
-    const popularCourses = document.querySelector('#presell-courses')
+    const presellCourses = document.querySelector('#presell-courses')
 
 
     const res = await fetch(`http://localhost:4000/v1/courses/presell`)
@@ -277,8 +277,8 @@ const getAndShowPresellCourses = async () => {
 
 
 
-    courses.slice(0,3).map(course => {
-        popularCourses.insertAdjacentHTML("beforeend", `
+    courses.slice(0, 3).map(course => {
+        presellCourses.insertAdjacentHTML("beforeend", `
 
              <div class="swiper-slide">
 
@@ -345,3 +345,73 @@ const getAndShowPresellCourses = async () => {
 };
 
 export { getAndShowPresellCourses };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const getAndShowArticles = async () => {
+
+    const articlesWrapper = document.querySelector('#articles-wrapper')
+
+
+    const res = await fetch(`http://localhost:4000/v1/articles`)
+
+    const articles = await res.json()
+
+
+
+    articles.slice(0,6).map(article => {
+        articlesWrapper.insertAdjacentHTML("beforeend", `
+
+<div class="col-4">
+
+                        <div class="article-card">
+
+                            <div class="article-card__header">
+
+                                <a href="" class="article-card__link-img">
+                                    <img src=http://localhost:4000/courses/covers/${article.cover} alt="article cover">
+                                </a>
+
+                            </div>
+
+                            <div class="article-card__content">
+
+                                <a href="" class="article-card__link">${article.title}</a>
+                                <p class="article-card__text">${article.description}</p>
+                                <a href="" class="article-card__btn">بیشتر بخوانید</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+            ` )
+    })
+
+
+    return articles
+
+
+};
+
+export { getAndShowArticles };

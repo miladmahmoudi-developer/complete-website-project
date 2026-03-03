@@ -126,3 +126,20 @@ window.addEventListener('load', () => {
     })
 
 })
+
+
+
+
+
+
+import { getAndShowArticles } from "./funcs/shared.js";
+
+window.addEventListener('load', () => {
+
+    
+    getAndShowArticles().then(data => {
+        console.log(data);
+
+    })
+
+})
