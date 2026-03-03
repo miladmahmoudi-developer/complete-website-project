@@ -36,6 +36,11 @@ export { showUserNameInNavber };
 
 
 
+
+
+
+
+
 const renderTopbarMenus = async () => {
 
     const topbarList = document.querySelector('.top-bar__menu');
@@ -64,6 +69,12 @@ const renderTopbarMenus = async () => {
 };
 
 export { renderTopbarMenus };
+
+
+
+
+
+
 
 
 
@@ -153,6 +164,16 @@ export { getAndShowAllCourses };
 
 
 
+
+
+
+
+
+
+
+
+
+
 const getAndShowPopularCourses = async () => {
 
     const popularCourses = document.querySelector('#popular-courses')
@@ -231,4 +252,96 @@ const getAndShowPopularCourses = async () => {
 
 };
 
+
+
 export { getAndShowPopularCourses };
+
+
+
+
+
+
+
+
+
+
+
+const getAndShowPresellCourses = async () => {
+
+    const popularCourses = document.querySelector('#presell-courses')
+
+
+    const res = await fetch(`http://localhost:4000/v1/courses/presell`)
+
+    const courses = await res.json()
+
+
+
+    courses.slice(0,3).map(course => {
+        popularCourses.insertAdjacentHTML("beforeend", `
+
+             <div class="swiper-slide">
+
+                            <div class="course-box">
+
+                                <a href="#">
+                                    <img src=http://localhost:4000/courses/covers/${course.cover} alt="course img" class="course-box__img">
+                                </a>
+
+                                <div class="course-box__main">
+
+                                    <a href="#" class="course-box__title">${course.name}</a>
+
+                                    <div class="course-box__rating-teacher">
+
+                                        <div class="course-box__teacher">
+                                            <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
+                                            <a href="#" class="course-box__teacher-link">${course.creator}</a>
+                                        </div>
+
+                                        <div class="course-box__rating">
+                                        ${Array(5 - course.courseAverageScore).fill(0).map(score => '<img src="images/svgs/star.svg" alt="rating" class="course-box__star">').join('')
+            }
+
+                                        ${Array(course.courseAverageScore).fill(0).map(score => '<img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">').join('')
+            }
+                                        </div>
+
+                                    </div>
+
+                                    <div class="course-box__status">
+
+                                        <div class="course-box__users">
+                                            <i class="fas fa-users course-box__users-icon"></i>
+                                            <span class="course-box__users-text">${course.registers}</span>
+                                        </div>
+
+                                        <span class="course-box__price">${course.price == 0 ? "رایگان" : course.price.toLocaleString()}</span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="course-box__footer">
+
+                                    <a href="#" class="course-box__footer-link">
+                                        مشاهده اطلاعات دوره
+                                        <i class="fas fa-arrow-left course-box__footer-icon"></i>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+            ` )
+    })
+
+
+    return courses
+
+
+};
+
+export { getAndShowPresellCourses };

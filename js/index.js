@@ -107,3 +107,22 @@ window.addEventListener('load', () => {
     })
 
 })
+
+
+
+
+
+
+
+
+import { getAndShowPresellCourses } from "./funcs/shared.js";
+
+window.addEventListener('load', () => {
+
+    
+    getAndShowPresellCourses().then(data => {
+        console.log(data);
+
+    })
+
+})
