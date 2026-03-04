@@ -359,14 +359,6 @@ export { getAndShowPresellCourses };
 
 
 
-
-
-
-
-
-
-
-
 const getAndShowArticles = async () => {
 
     const articlesWrapper = document.querySelector('#articles-wrapper')
@@ -378,7 +370,7 @@ const getAndShowArticles = async () => {
 
 
 
-    articles.slice(0,6).map(article => {
+    articles.slice(0, 6).map(article => {
         articlesWrapper.insertAdjacentHTML("beforeend", `
 
 <div class="col-4">
@@ -415,3 +407,77 @@ const getAndShowArticles = async () => {
 };
 
 export { getAndShowArticles };
+
+
+
+
+
+
+
+
+const getAndShowNavbarMenus = async () => {
+
+    const menusWrapper = document.querySelector("#menus-wrapper")
+
+    const res = await fetch(`http://localhost:4000/v1/menus`)
+    const menus = await res.json()
+
+
+
+
+
+    menus.map(menu => {
+
+        menusWrapper.insertAdjacentHTML("beforeend", `
+
+
+
+            <li class="main-header__item">
+
+                <a href="#" class="main-header__link">${menu.title}
+
+                    ${menu.submenus.length !== 0 ?
+            `
+                            <i class="fas fa-angle-down main-header__link-icon"></i>
+                            <ul class="main-header__dropdown">
+
+                                ${menu.submenus.map((submenu) => (`
+
+                                                        <li class="main-header__dropdown-item">
+                                                            <a href="#" class="main-header__dropdown-link">
+                                                                ${submenu.title}
+                                                            </a>
+                                                        </li>
+
+                                                                `
+                                                            )).join('')
+                                                            }
+
+
+                            </ul>
+                        `
+
+            :''}
+
+
+                </a>
+                
+
+            </li>
+
+                          
+
+            ` )
+    })
+
+
+
+
+
+
+
+    return menus
+
+}
+
+export { getAndShowNavbarMenus }
