@@ -1,5 +1,5 @@
 import { getMe } from "./auth.js";
-import { isLogin } from "./utils.js";
+import { isLogin, getUrlParam } from "./utils.js";
 
 
 
@@ -434,10 +434,10 @@ const getAndShowNavbarMenus = async () => {
 
             <li class="main-header__item">
 
-                <a href="#" class="main-header__link">${menu.title}
+                <a href=category.html?cat=frontend class="main-header__link">${menu.title}
 
                     ${menu.submenus.length !== 0 ?
-            `
+                `
                             <i class="fas fa-angle-down main-header__link-icon"></i>
                             <ul class="main-header__dropdown">
 
@@ -450,14 +450,14 @@ const getAndShowNavbarMenus = async () => {
                                                         </li>
 
                                                                 `
-                                                            )).join('')
-                                                            }
+                )).join('')
+                }
 
 
                             </ul>
                         `
 
-            :''}
+                : ''}
 
 
                 </a>
@@ -481,3 +481,22 @@ const getAndShowNavbarMenus = async () => {
 }
 
 export { getAndShowNavbarMenus }
+
+
+
+
+
+
+
+const getAndShowCategoryCourses = async () => {
+
+    const categoryName = getUrlParam('cat')
+
+    const res = await fetch(`http://localhost:4000/v1/courses/category/${categoryName}`)
+    const courses = await res.json()
+
+    return courses
+
+}
+
+export { getAndShowCategoryCourses }

@@ -22,9 +22,14 @@ const getToken = () => {
     return JSON.parse(localStorage.getItem('user'))?.token || null
 }
 
-const isLogin = () =>{
+const isLogin = () => {
     const userInfos = localStorage.getItem('user')
     return userInfos ? true : false
 }
 
-export { showSwal, saveIntoLocalStorage, getFromLocalStorage, getToken , isLogin };
+const getUrlParam = key => {
+    const urlParams = new URLSearchParams(window.location.search)
+    return urlParams.get(key)
+}
+
+export { showSwal, saveIntoLocalStorage, getFromLocalStorage, getToken, isLogin, getUrlParam };
