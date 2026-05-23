@@ -1,14 +1,147 @@
+// import { showSwal, saveIntoLocalStorage, getToken } from "./utils.js";
+
+
+
+// const register = () => {
+
+//     const nameInput = document.querySelector('#name')
+//     const usernameInput = document.querySelector('#username')
+//     const emailInput = document.querySelector('#email')
+//     const phoneInput = document.querySelector('#phone')
+//     const passwordInput = document.querySelector('#password')
+
+//     const newUserInfos = {
+//         name: nameInput.value.trim(),
+//         username: usernameInput.value.trim(),
+//         email: emailInput.value.trim(),
+//         phone: phoneInput.value.trim(),
+//         password: passwordInput.value.trim(),
+//         confirmPassword: passwordInput.value.trim()
+//     }
+
+//     fetch(`http://localhost:4000/v1/auth/register`, {
+//         method: 'post',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(newUserInfos)
+
+//     }).then(res => {
+
+//         // result alerts...
+//         if (res.status === 201) {
+
+//             showSwal('ثبت نام با موفقیت انجام شد', 'success', 'ورود به پنل', (result) => { location.href = 'index.html' })
+
+//         } else if (res.status === 409) {
+
+//             showSwal('نام کاربری یا ایمیل قبلا استفاده شده', 'error', 'تصحیح اطلاعات ثبت نام', () => { })
+
+//         }
+
+//         console.log(res);
+
+//         return res.json()
+//     })
+//         .then((result) => {
+//             console.log(result);
+//             saveIntoLocalStorage('user', { token: result.accessToken })
+
+//         })
+
+// };
+
+
+// export { register }
+
+
+
+
+// const login = () => {
+
+//     const identifierInput = document.querySelector("#identifier")
+//     const passwordInput = document.querySelector("#password")
+
+//     const userInfos = {
+
+//         identifier: identifierInput.value.trim(),
+//         password: passwordInput.value.trim()
+
+//     }
+
+//     fetch(`http://localhost:4000/v1/auth/login`, {
+//         method: 'post',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(userInfos)
+//     }).then(res => {
+
+//         // result alerts...
+//         if (res.status === 200) {
+
+//             showSwal('ورود با موفقیت انجام شد', 'success', 'ورود به پنل', (result) => { location.href = 'index.html' })
+
+//         } else if (res.status === 401) {
+
+//             showSwal('کاربری با این اطلاعات یافت نشد', 'error', 'تصحیح اطلاعات', () => { })
+
+//         }
+
+//         console.log(res);
+
+//         return res.json()
+//     })
+//         .then((result) => {
+//             console.log(result);
+//             saveIntoLocalStorage('user', { token: result.accessToken })
+//         })
+
+// };
+
+
+// export { login }
+
+
+
+
+// const getMe = async () => {
+
+//     const token = getToken();
+
+//     if (!token) {
+
+//         return false;
+
+//     }
+
+
+//     const res = await fetch(`http://localhost:4000/v1/auth/me`, {
+//         method: 'get',
+//         headers: {
+//             'Authorization': `Bearer ${token}`
+//         },
+//     })
+
+//     const data = await res.json()
+
+//     return data
+
+
+// }
+
+
+// export { getMe }
+
+
 import { showSwal, saveIntoLocalStorage, getToken } from "./utils.js";
 
-
-
 const register = () => {
-
-    const nameInput = document.querySelector('#name')
-    const usernameInput = document.querySelector('#username')
-    const emailInput = document.querySelector('#email')
-    const phoneInput = document.querySelector('#phone')
-    const passwordInput = document.querySelector('#password')
+    const nameInput = document.querySelector('#name');
+    const usernameInput = document.querySelector('#username');
+    const emailInput = document.querySelector('#email');
+    const phoneInput = document.querySelector('#phone');
+    const passwordInput = document.querySelector('#password');
 
     const newUserInfos = {
         name: nameInput.value.trim(),
@@ -17,118 +150,116 @@ const register = () => {
         phone: phoneInput.value.trim(),
         password: passwordInput.value.trim(),
         confirmPassword: passwordInput.value.trim()
-    }
+    };
 
     fetch(`http://localhost:4000/v1/auth/register`, {
-        method: 'post',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(newUserInfos)
-
-    }).then(res => {
-
-        // result alerts...
-        if (res.status === 201) {
-
-            showSwal('ثبت نام با موفقیت انجام شد', 'success', 'ورود به پنل', (result) => { location.href = 'index.html' })
-
-        } else if (res.status === 409) {
-
-            showSwal('نام کاربری یا ایمیل قبلا استفاده شده', 'error', 'تصحیح اطلاعات ثبت نام', () => { })
-
-        }
-
-        console.log(res);
-
-        return res.json()
     })
-        .then((result) => {
-            console.log(result);
-            saveIntoLocalStorage('user', { token: result.accessToken })
+        .then(res => {
+            console.log(res.status); // برای دیباگ
 
+            if (res.status === 201) {
+                showSwal('ثبت نام با موفقیت انجام شد', 'success', 'ورود به پنل', (result) => {
+                    location.href = 'index.html';
+                });
+                return res.json(); // فقط در صورت موفقیت جیسون را برگردان
+            } else if (res.status === 409) {
+                showSwal('نام کاربری یا ایمیل قبلا استفاده شده', 'error', 'تصحیح اطلاعات ثبت نام', () => { });
+                return null; // برگرداندن null برای جلوگیری از اجرای then بعدی
+            } else {
+                showSwal('خطایی در ثبت نام رخ داد', 'error', 'تلاش مجدد', () => { });
+                return null;
+            }
         })
-
+        .then((result) => {
+            // فقط اگر result نال نباشد (یعنی ثبت نام موفق بوده)، توکن را ذخیره کن
+            if (result) {
+                console.log(result);
+                saveIntoLocalStorage('user', { token: result.accessToken });
+            }
+        });
 };
 
-
-export { register }
-
-
+export { register };
 
 
 const login = () => {
-
-    const identifierInput = document.querySelector("#identifier")
-    const passwordInput = document.querySelector("#password")
+    const identifierInput = document.querySelector("#identifier");
+    const passwordInput = document.querySelector("#password");
 
     const userInfos = {
-
         identifier: identifierInput.value.trim(),
         password: passwordInput.value.trim()
-
-    }
+    };
 
     fetch(`http://localhost:4000/v1/auth/login`, {
-        method: 'post',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(userInfos)
-    }).then(res => {
-
-        // result alerts...
-        if (res.status === 200) {
-
-            showSwal('ورود با موفقیت انجام شد', 'success', 'ورود به پنل', (result) => { location.href = 'index.html' })
-
-        } else if (res.status === 401) {
-
-            showSwal('کاربری با این اطلاعات یافت نشد', 'error', 'تصحیح اطلاعات', () => { })
-
-        }
-
-        console.log(res);
-
-        return res.json()
     })
-        .then((result) => {
-            console.log(result);
-            saveIntoLocalStorage('user', { token: result.accessToken })
+        .then(res => {
+            if (res.status === 200) {
+                showSwal('ورود با موفقیت انجام شد', 'success', 'ورود به پنل', (result) => {
+                    location.href = 'index.html';
+                });
+                return res.json();
+            } else if (res.status === 401) {
+                showSwal('کاربری با این اطلاعات یافت نشد', 'error', 'تصحیح اطلاعات', () => { });
+                return null;
+            } else {
+                showSwal('خطا در ورود', 'error', 'تلاش مجدد', () => { });
+                return null;
+            }
         })
-
+        .then((result) => {
+            if (result) {
+                console.log(result);
+                saveIntoLocalStorage('user', { token: result.accessToken });
+            }
+        });
 };
 
-
-export { login }
-
-
+export { login };
 
 
 const getMe = async () => {
-
     const token = getToken();
-
     if (!token) {
-
         return false;
-
     }
 
+    try {
+        const res = await fetch(`http://localhost:4000/v1/auth/me`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        });
 
-    const res = await fetch(`http://localhost:4000/v1/auth/me`, {
-        method: 'get',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
-    })
+        // بررسی وضعیت پاسخ
+        if (!res.ok) {
+            // اگر توکن منقضی یا نامعتبر بود، می‌توان کاربر را خارج کرد
+            if (res.status === 401 || res.status === 403) {
+                console.error("توکن نامعتبر است");
+                // اینجا می‌توانید localStorage را پاک کنید
+                // localStorage.clear(); 
+            }
+            return false;
+        }
 
-    const data = await res.json()
+        const data = await res.json();
+        return data;
 
-    return data
+    } catch (error) {
+        console.error("خطا در دریافت اطلاعات کاربر:", error);
+        return false;
+    }
+};
 
-
-}
-
-
-export { getMe }
+export { getMe };

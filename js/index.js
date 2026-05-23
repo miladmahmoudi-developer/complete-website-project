@@ -40,7 +40,7 @@ window.addEventListener('load', () => {
 
 
     console.log(getAndShowAllCourses);
-    
+
     // getAndShowAllCourses().then(data => {
     //     console.log(data);
 
@@ -84,7 +84,7 @@ import { getAndShowAllCourses } from "./funcs/shared.js";
 
 window.addEventListener('load', () => {
 
-    
+
     getAndShowAllCourses()
 
 
@@ -98,9 +98,9 @@ import { getAndShowPopularCourses } from "./funcs/shared.js";
 
 window.addEventListener('load', () => {
 
-    
+
     getAndShowPopularCourses()
-   
+
 
 })
 
@@ -115,7 +115,7 @@ import { getAndShowPresellCourses } from "./funcs/shared.js";
 
 window.addEventListener('load', () => {
 
-    
+
     getAndShowPresellCourses()
 
 })
@@ -129,7 +129,7 @@ import { getAndShowArticles } from "./funcs/shared.js";
 
 window.addEventListener('load', () => {
 
-    
+
     getAndShowArticles()
 
 })
@@ -139,7 +139,7 @@ import { getAndShowNavbarMenus } from "./funcs/shared.js";
 
 window.addEventListener('load', () => {
 
-    
+
     getAndShowNavbarMenus().then(data => {
         console.log(data);
 
