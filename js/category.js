@@ -1,4 +1,5 @@
 import { getAndShowCategoryCourses, insertCourseBoxHtmlTemplate } from "./funcs/shared.js";
+import { searchInArray } from "./funcs/utils.js";
 
 window.addEventListener('load', () => {
     getAndShowCategoryCourses().then(responseCourses => {
@@ -12,6 +13,13 @@ window.addEventListener('load', () => {
 
         const coursesFiltringSelections = document.querySelectorAll('.courses-top-bar__selection-item')
         const selectionTitleElem = document.querySelector('.courses-top-bar__selection-title')
+
+        const coursesSearchInput = document.querySelector('.courses-top-bar__input')
+
+
+
+
+
 
         // show category cources by row show type
         if (courses.length) {
@@ -49,8 +57,8 @@ window.addEventListener('load', () => {
 
 
         // show category courses by user filtering method
-        coursesFiltringSelections.forEach(coursesFiltringSelection =>{
-            coursesFiltringSelection.addEventListener('click' , event=>{
+        coursesFiltringSelections.forEach(coursesFiltringSelection => {
+            coursesFiltringSelection.addEventListener('click', event => {
 
                 coursesFiltringSelections.forEach(selectionElem => selectionElem.classList.remove('courses-top-bar__selection-item--active'));
                 event.target.classList.add('courses-top-bar__selection-item--active');
@@ -64,6 +72,15 @@ window.addEventListener('load', () => {
                     `);
 
             })
+        })
+
+
+        // handle search in courses
+        coursesSearchInput.addEventListener('input',event=>{
+            const showCourses = searchInArray([ ... responseCourses], 'name', event.target.value)
+            
+            insertCourseBoxHtmlTemplate(showCourses, coursesShowType, categoryCoursesWrapper)
+            
         })
 
     })
