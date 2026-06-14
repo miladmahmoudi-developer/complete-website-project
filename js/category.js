@@ -76,11 +76,23 @@ window.addEventListener('load', () => {
 
 
         // handle search in courses
-        coursesSearchInput.addEventListener('input',event=>{
-            const showCourses = searchInArray([ ... responseCourses], 'name', event.target.value)
-            
-            insertCourseBoxHtmlTemplate(showCourses, coursesShowType, categoryCoursesWrapper)
-            
+        coursesSearchInput.addEventListener('input', event => {
+            const showCourses = searchInArray([...responseCourses], 'name', event.target.value)
+
+
+            if (showCourses.length) {
+                insertCourseBoxHtmlTemplate(showCourses, coursesShowType, categoryCoursesWrapper)
+
+            } else {
+
+                categoryCoursesWrapper.innerHTML = "";
+                categoryCoursesWrapper.insertAdjacentHTML('beforeend', `
+            <div class="alert alert-danger">هیچ دوره ای برای جست و جو شما وجود ندارد</div>
+            `)
+
+            }
+
+
         })
 
     })
